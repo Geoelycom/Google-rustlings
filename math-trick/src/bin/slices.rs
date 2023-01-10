@@ -3,6 +3,7 @@ fn main() {
   let a: [i32; 6] = [10, 20, 30, 40, 50, 60];  // Create an array `a` with six elements
   println!("a: {:?}", a);  // Print the whole array
 
+  // a[3] = 35; //attempts to modify the array at index 3, which leads to an error
   let s: &[i32] = &a[2..4];  // Create a slice `s` that refers to elements 2 and 3 of `a`
   println!("s: {:?}", s);  // Print the slice
   ex()
