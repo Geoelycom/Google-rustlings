@@ -22,7 +22,7 @@ fn main () {
   println!("new area: {}", rect.area());
 }
 
-
+ 
 /*** 
 This code defines a struct called Rectangle that has two fields: width and height.
 Then we have an implementation block called impl Rectangle in which we defined two methods, area and inc_width which are associated with the Rectangle struct.
