@@ -23,3 +23,6 @@ fn main() {
     println!("transposed:");
     pretty_print(&transposed);
 }
+
+
+//fix transpose algorithm 
