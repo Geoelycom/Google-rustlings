@@ -2,11 +2,19 @@
  #![allow(unused_variables, dead_code)]
 
 fn transpose(matrix: [[i32; 3]; 3]) -> [[i32; 3]; 3] {
-    unimplemented!()
+    let mut transposed = [[0; 3]; 3 ];
+    for i in 0..3 {
+      for j in 0..3 {
+        transposed[i][j] = matrix[j][i];
+      }
+    }
+    transposed
 }
 
 fn pretty_print(matrix: &[[i32; 3]; 3]) {
-    unimplemented!()
+    for row in matrix{
+      println!("[{}, {}, {}]", row[0], row[1], row[2]);
+    }
 }
 
 fn main() {
@@ -23,6 +31,3 @@ fn main() {
     println!("transposed:");
     pretty_print(&transposed);
 }
-
-
-//fix transpose algorithm 
