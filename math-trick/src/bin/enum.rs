@@ -10,8 +10,8 @@ enum Direction {
 }
 
 fn main() {
-  use crate::Color::Red;
-  print_color(Red);
+  // use crate::Color::Red; //one of this two can be use to pass the enum type to our function
+  print_color(Color::Red);
   let go = Direction::Left;
   match go {
      Direction::Left => println!("go left"),
