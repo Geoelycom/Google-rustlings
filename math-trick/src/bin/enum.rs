@@ -12,7 +12,7 @@ enum Direction {
 fn main() {
   // use crate::Color::Red; //one of this two can be use to pass the enum type to our function
   print_color(Color::Red);
-  let go = Direction::Left;
+  let go = Direction::Left; //creating an instance of our enum
   match go {
      Direction::Left => println!("go left"),
      Direction::Right => println!("go right"),
@@ -38,3 +38,18 @@ fn print_color(my_color: Color) {
     Color::Orange => println!("color is orange")
   }
 }
+
+//example 3, ---->>>> rust book
+
+enum IpAddressKind {
+  v4,
+  v6,
+}
+
+//create an instance of IpaddressKind;
+let four = IpAddressKind::v4;
+let six: IpAddressKind::v6;
+// we can now create a function that can take our enum as a parameter. just like we did in case 2
+fn route(ip_kind: IpAddressKind) {}
+// call the function
+route(IpAddressKind::v6);
