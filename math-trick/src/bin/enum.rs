@@ -10,7 +10,8 @@ enum Direction {
 }
 
 fn main() {
-  print_color();
+  use crate::Color::Red;
+  print_color(Red);
   let go = Direction::Left;
   match go {
      Direction::Left => println!("go left"),
@@ -28,9 +29,8 @@ enum Color {
   Orange
 }
 
-fn print_color() {
-  let printed_color = Color::Red;
-  match printed_color {
+fn print_color(my_color: Color) {
+  match my_color {
     Color::Red => println!("color is red"),
     Color::Green => println!("color is green"),
     Color::Yellow => println!("color is yellow"),
