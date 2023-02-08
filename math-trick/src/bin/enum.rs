@@ -53,3 +53,26 @@ let six: IpAddressKind::v6;
 fn route(ip_kind: IpAddressKind) {}
 // call the function
 route(IpAddressKind::v6);
+
+fn value_in_cents(coin: Coin) -> u8 {
+  match coin {
+    Coin::Penny => 1,
+    Coin::Nickel => 5,
+    Coin::Dime => 10,
+    Coin:Quater(state) => println!("state quater from {:?}!", state);
+
+  }
+}
+
+// The if let pattern
+
+
+fn main() {
+  let config_max = Some(3u8);
+  if let Some(max) = config_max {
+      println!("The maximum is configured to be {}", max);
+  }
+}
+
+// The syntax if let takes a pattern and an expression separated by an equal sign. It works the same way as a match, where the expression is given to the match and the pattern is its first arm. In this case, the pattern is Some(max), and the max binds to the value inside the Some. We can then use max in the body of the if let block in the same way we used max in the corresponding match arm. The code in the if let block isn’t run if the value doesn’t match the pattern.
+
