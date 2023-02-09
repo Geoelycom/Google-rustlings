@@ -37,3 +37,10 @@ Then we call the inc_width method on the rect variable and pass the value 5 for 
 So the code calculates and prints the area of the rectangle, then increases the width of the rectangle and again calculates and prints the new area of the rectangle after the change.
 
 ***/
+
+//Examples
+
+struct Temperature {
+  degrees_f: f64,
+}
+
