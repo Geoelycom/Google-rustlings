@@ -15,7 +15,8 @@ impl Rectangle {
   }
 }
 
-fn main () {
+fn main() {
+  entry_point();
   let mut rect = Rectangle { width: 10, height: 5 };
   println!("old area: {}", rect.area());
   rect.inc_width(5);
@@ -44,3 +45,14 @@ struct Temperature {
   degrees_f: f64,
 }
 
+impl Temperature {
+  fn show_temp(&self) {
+    println!("{:?} degress F", self.degrees_f);
+  }
+}
+
+
+fn entry_point() {
+  let hot = Temperature{ degrees_f: 99.9};
+  hot.show_temp();
+}
