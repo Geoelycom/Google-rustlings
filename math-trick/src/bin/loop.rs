@@ -1,5 +1,6 @@
 fn main() {
   new_inter();
+  new_way_to_inter();
   let mut num = 6;
   loop {
     println!("{:?}", num);
@@ -17,4 +18,17 @@ fn new_inter(){
     println!("{:?}", i)
   }
   println!("yeah we done!")
+}
+
+
+fn new_way_to_inter() {
+  let mut n = 1;
+  loop {
+    println!("{:?}", n);
+    if n == 4 {
+      break;
+    }
+    n = n + 1;
+  }
+  println!("we did it in a new way")
 }
