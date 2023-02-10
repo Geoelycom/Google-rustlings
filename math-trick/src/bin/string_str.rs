@@ -1,6 +1,7 @@
 //strings and str
 
 fn main() {
+  people();
   let s1: &str = "hello"; //type is set to a reference string slice
   println!("s1: {s1}");
 
@@ -25,11 +26,72 @@ This method also validates that the provided string is a valid UTF-8 encoded str
 
 For example, the following code creates a new String instance my_string from the string literal "Hello, world!":
 
+
+String-- owned
+&str--- Borrowed String slice
+one must use an owned String to store in a Struct
+one must use &str when passing to a function
 ***/
 
-let my_string = String::from("Hello, world!");
+// let my_string = String::from("Hello, world!");
 /** 
 In general, when you have a string literal and you want to use it as a String, you will want to use the String::from method to create a new String instance. This allows you to use all the methods provided by the String type, such as push, pop, truncate and more, in addition to passing the string to functions that accept a String argument.
 
 The &str type is a slice of an owned String and it doesn't own the memory it's pointing to. Instead it borrows it and points to the memory location where the string data is stored.
 **/
+
+struct LineItem {
+  name: String,
+  count: i32,
+}
+
+fn Itemprint() {
+  let reciept = vec![
+    LineItem {
+      name: "cereal".to_owned(), // ways to create an owned string
+      count: 2,
+    },
+    LineItem {
+      name: String::from("fruit"), /// another way to create owned string
+      count; 4,
+    },
+  ];
+}
+
+struct Favorites {
+  name: String,
+  age: i32,
+  color: String,
+}
+
+fn print_people(data: &str) {
+  println!("{:?}", data);
+}
+
+fn people() {
+  let new_people = vec![
+      Favorites {
+      name: String::from("Alice"),
+      age: 10,
+      color:String::from("Red"),
+      },
+      Favorites {
+       name: String::from("Bob"),
+       age: 12,
+       color: String::from("Blue"),
+
+      },
+      Favorites {
+      name: String::from("Carol"),
+      age: 8,
+      color: String::from("Green"),
+      },
+  ];
+
+  for person in new_people {
+    if person.age <= 10 {
+      print_people(&person.name);
+      print_people(&person.color);
+    }
+  }
+}
