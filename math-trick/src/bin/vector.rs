@@ -11,6 +11,7 @@ use for..in loop to interate through items of a vector
 //syntax
 fn main() {
   test_scores();
+  print_numbers();
   let v: Vec<i32> = Vec::new();
 }
 
@@ -47,4 +48,17 @@ fn test_scores(){
   for test in my_scores {
     println!("test scores: {:?}", test.scores)
   }
+}
+
+// exercise
+
+fn print_numbers() {
+  let my_numbers = vec![10, 20, 30, 40];
+  for number in &my_numbers {
+    match number {
+      30 => println!("thirty"),
+      _=> println!("the number is {:?}", number),
+    }
+  }
+  println!("the number of element: {:?}", my_numbers.len());
 }
