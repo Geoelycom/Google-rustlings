@@ -5,13 +5,16 @@
  used for lists of informations
  can add, remove, and tranverse the entries
 A vector allows you to store a variable number of values next to each other.
+vectors contain multiple pieces of similar data. 
+use for..in loop to interate through items of a vector
  **/
 //syntax
 fn main() {
+  test_scores();
   let v: Vec<i32> = Vec::new();
 }
 
-fn newVec() {
+fn new_vec() {
   let v = vec![1, 2, 3, 4, 5];
 
   // Using indexing
@@ -24,5 +27,24 @@ fn newVec() {
   match third {
       Some(third) => println!("The third element is {third}"),
       None => println!("There is no third element."),
+  }
+}
+
+//types of methods on vecs
+struct Test {
+  scores: i32,
+}
+
+fn test_scores(){
+  let my_scores = vec![
+    Test { scores: 90 },
+    Test { scores: 77 },
+    Test { scores: 69 },
+    Test { scores: 80 },
+    
+  ];
+
+  for test in my_scores {
+    println!("test scores: {:?}", test.scores)
   }
 }
