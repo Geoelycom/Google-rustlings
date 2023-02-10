@@ -95,3 +95,6 @@ fn people() {
     }
   }
 }
+
+// #[derive(Debug)]
+// this is a specail macro applied to enum and structs that allows us to automatically implement functionality
