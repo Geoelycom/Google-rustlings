@@ -76,3 +76,37 @@ fn main() {
 
 // The syntax if let takes a pattern and an expression separated by an equal sign. It works the same way as a match, where the expression is given to the match and the pattern is its first arm. In this case, the pattern is Some(max), and the max binds to the value inside the Some. We can then use max in the body of the if let block in the same way we used max in the corresponding match arm. The code in the if let block isn’t run if the value doesn’t match the pattern.
 
+/** note the little differecnce in struct and enum matches
+// when matching on a struct we make use of the {}. example Enum matching below 
+  match Flat {
+    Discount::Flat(2) => println!("discount"),
+  }
+    in the case of a STRUCT we have the below code
+    match concert {
+      Ticket { .. } => println
+    }
+  **/
+
+
+  // Advanced match
+  enum Tickets {
+    Backstage(f64, String),
+    Standard(f64)
+    Vip(f64, String),
+  }
+
+  fn create_ticket() {
+    let tickets = vec![
+      Tickets:: Backstage(50.0, "john".to_owned()),
+      Tickets::Standard(28.6, "amy".to_owned()),
+      Tickets::Vip(40, "Amanda".to_owned()),
+    ];
+
+    for ticket in tickets {
+      match ticket {
+        Tickets::Backstage(price, holder) => println("Backstage holder: {:?}, {:?}", price, holder),
+        Tickets::Standard(price) => println("standard holder: {:?}", price),
+        Tickets::Vip(price, holder) => println("Vip ticket holder: {:?}, {:?}", price, holder),
+      }
+    } 
+  }
