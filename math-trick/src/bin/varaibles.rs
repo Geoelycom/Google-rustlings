@@ -1,3 +1,9 @@
+// Variables holds primitive data or references to data
+// Varaibles are immutable by default
+//Rust is a block-scope language.
+
+
+
 fn takes_u32(x:u32) {
   println!("u32: {x}");
 }
