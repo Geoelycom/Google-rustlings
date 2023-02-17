@@ -98,3 +98,12 @@ fn people() {
 
 // #[derive(Debug)]
 // this is a specail macro applied to enum and structs that allows us to automatically implement functionality
+
+//string method
+//to push a single char
+let mut hello = String::from("Hello");
+hello.push('W')
+println!("{}", hello)
+
+// push a string 
+hello.push_str("hi there how are you")
