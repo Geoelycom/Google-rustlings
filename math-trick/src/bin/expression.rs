@@ -14,6 +14,7 @@
  }
 
  let paid = true;
+ 
  let item = Menu::Drink;
  let drink_type = "water";
  let order_placed = match item {

@@ -9,8 +9,9 @@ they are very fast to retrieve data using the key
 //Example
 use std::collections::HashMap;
 
-
 let mut people = HashMap::new();
+
+
 people.insert("susan", 21),
 people.insert("john", 19),
 people.insert("mary", 25),
