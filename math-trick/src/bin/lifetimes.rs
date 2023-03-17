@@ -32,3 +32,16 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
       y
   }
 }
+
+
+struct ImportExcerpt<'a> {
+  part: &'a str,
+}
+
+fn  main() {
+  let novel = String::from("call me ismaila. Some years ago..");
+  let first_sentence = novel.split('.').next().expect("could not find a '.' ");
+  let i = ImportExcerpt {
+    part: first_sentence
+  };
+}
