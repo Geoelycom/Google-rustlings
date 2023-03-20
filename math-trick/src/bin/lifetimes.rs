@@ -45,3 +45,6 @@ fn  main() {
     part: first_sentence
   };
 }
+
+// understanding lifetimes Elision
+
