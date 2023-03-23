@@ -63,3 +63,25 @@ fn first_word(s: &str) -> &str {
 // Lifetimes on function or method parameters are called input lifetimes, and lifetimes on return values are called output lifetimes.
 
 // The compiler uses three rules to figure out the lifetimes of the references when there aren’t explicit annotations. The first rule applies to input lifetimes, and the second and third rules apply to output lifetimes. If the compiler gets to the end of the three rules and there are still references for which it can’t figure out lifetimes, the compiler will stop with an error. These rules apply to fn definitions as well as impl blocks.
+
+//Lifetime Annotations in Method Definitions
+
+impl <'a> ImportantExcerpt<'a> {
+  fn level(&self) -> i32 { 
+    3
+  }
+}
+
+//The lifetime parameter declaration after impl and its use after the type name are required, but we’re not required to annotate the lifetime of the reference to self because of the first elision rule.
+
+//Here is an example where the third lifetime elision rule applies:
+
+impl<'a> ImportantExcerpt<'a> {
+  fn annouce_and_return_part(&self, announcement: &str) -> &str {
+    println!("Attention please: {}", announcement);
+    self.part
+  }
+}
+
+//There are two input lifetimes, so Rust applies the first lifetime elision rule and gives both &self and announcement their own lifetimes. Then, because one of the parameters is &self, the return type gets the lifetime of &self, and all lifetimes have been accounted for.
+
