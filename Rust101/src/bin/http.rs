@@ -1,4 +1,9 @@
 fn main () {
+  let get_request = Method::GET;
+  let delete_request = Method::DELETE;
+  let post_request = Method::POST;
+  let put_request = Method::PUT;
+
   let server = Server::new("127.0.0.1:8080".to_string());
   server.run();
 }
@@ -24,7 +29,7 @@ fn new(addr: String) -> Self {
   }
 }
 fn run(self) {
-println!("Server is listening for connections request")
+println!("Server is listening on {}",  self.addr);
 }
 }
 
@@ -33,3 +38,26 @@ println!("Server is listening for connections request")
 //method accept a special first parameter/arguement called self.
 
 //In every struct . there is a key word called the uppercase Self which is alais of the Struct name.
+
+
+struct Request {
+  path: String,
+  query_string: String,
+  method: Method,
+}
+
+
+enum Method {
+GET,
+PUT,
+DELETE,
+POST,
+CONNECT,
+HEAD,
+OPTIONS,
+TRACE,
+PATCH
+}
+
+
+// in memory enums are represented by numbers
