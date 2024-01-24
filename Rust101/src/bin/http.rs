@@ -70,3 +70,4 @@ mod http {
 }
 
 // in memory enums are represented by numbers
+// moving each struct into a module
