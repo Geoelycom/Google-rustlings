@@ -45,15 +45,15 @@ mod front_of_house { //mod = definination,  body of mods goes inside {}
 }
 
 //example of our module tree used in resturant example.
-crate
- └── front_of_house
-     ├── hosting
-     │   ├── add_to_waitlist
-     │   └── seat_at_table
-     └── serving
-         ├── take_order
-         ├── serve_order
-         └── take_payment
+// crate
+//  └── front_of_house
+//      ├── hosting
+//      │   ├── add_to_waitlist
+//      │   └── seat_at_table
+//      └── serving
+//          ├── take_order
+//          ├── serve_order
+//          └── take_payment
 
 
 /*  Rust lets you split a package into multiple crates and a crate into modules so you can refer to items defined in one module from another module. You can do this by specifying absolute or relative paths. These paths can be brought into scope with a use statement so you can use a shorter path for multiple uses of the item in that scope. Module code is private by default, but you can make definitions public by adding the pub keyword.

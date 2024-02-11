@@ -69,5 +69,6 @@ mod http {
   }
 }
 
+// every file in rust is treated as a module
 // in memory enums are represented by numbers
 // moving each struct into a module
