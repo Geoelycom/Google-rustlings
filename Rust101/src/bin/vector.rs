@@ -62,3 +62,5 @@ fn print_numbers() {
   }
   println!("the number of element: {:?}", my_numbers.len());
 }
+
+// Todo: update exercise for new hires/students visiting the repo
