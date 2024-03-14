@@ -71,3 +71,38 @@ fn main() {
 
 // ARC = SHARED OWNERSHIP across threads
 // Mutex = thread safety
+
+// two rules to mutex
+//1. you must attempt to acquire the lock before you access the data
+//2. when you are done accessing the data being guarded by the mutex, you must unlock the data so others can access it after you.
+
+impl FulcrumClient {
+  pub const HEADERS_GET_TIP: &'static str = "blockchain.headers.get_tip";
+  pub const UNSUBSCRIBE_SCRIPT: &'static str = "blockchain.scripthash.unsubscribe";
+  pub const CONFIRMED_BLOCK_HEIGHT: i32 = 6;
+  pub const MEMPOOL_HEIGHT: i32 = 0;
+}
+
+
+// suggested fix for the loop for notify
+
+// Assuming this is inside your match height_diff block
+height if height >= 6 => {
+  // Confirm that we only notify up to the 6th confirmation
+  if let Some(value) = send_counter.get(&6) {
+      if *value == 0 {
+          Self::handle_confirmed_transaction(
+              self.client.clone(),
+              notify_tx_clone.clone(),
+              &tx_history.tx_hash,
+              6, // Use exact confirmation number
+          )
+          .await?;
+
+          send_counter.insert(6, 1);
+          println!("Notification for 6th confirmation sent.");
+      }
+  }
+  // After handling the 6th confirmation, ensure no further actions
+  break Ok(());
+}
