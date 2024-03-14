@@ -106,3 +106,11 @@ height if height >= 6 => {
   // After handling the 6th confirmation, ensure no further actions
   break Ok(());
 }
+
+//Ensuring blockTip is always correct
+
+// Inside the loop
+// let guard = self.client.lock().await;
+// let tip_res = guard.raw_call(Self::HEADERS_GET_TIP, vec![])?;
+// let blockchain_tip = serde_json::from_value::<BlockTip>(tip_res)?;
+// drop(guard);
