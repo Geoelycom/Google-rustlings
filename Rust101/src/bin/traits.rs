@@ -114,3 +114,14 @@ height if height >= 6 => {
 // let tip_res = guard.raw_call(Self::HEADERS_GET_TIP, vec![])?;
 // let blockchain_tip = serde_json::from_value::<BlockTip>(tip_res)?;
 // drop(guard);
+
+
+/// so intstead of having this below
+/// let guard = self.client.lock().await;
+/// let tip_res = guard.raw_call(Self::HEADERS_GET_TIP, vec![])?;
+/// let blockchain_tip = serde_json::from_value::<BlockTip>(tip_res)?;
+///drop(guard); after the first mempool = 1. we put it that top of the loop
+/// let guard = self.client.lock().await;
+/// let tip_res = guard.raw_call(Self::HEADERS_GET_TIP, vec![])?;
+/// let blockchain_tip = serde_json::from_value::<BlockchainTip>(tip_res)?;
+/// drop(guard)
