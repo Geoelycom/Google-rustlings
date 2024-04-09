@@ -1,20 +1,17 @@
 [workspace]
 
 members = [
-  "RUST101", "add_one",
-  "adder", "tutorial",
+  "adder", 
+  "tutorial",
 ]
 
-
-
 [package]
-name = "Rust101"
+name = "tutorial"
 version = "0.1.0"
 edition = "2021"
-
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 
 [[bin]]
-name = "Rust101"
+name = "tutorail"
 path = "src/main.rs"
