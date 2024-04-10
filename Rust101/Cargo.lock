@@ -9,3 +9,7 @@ version = "0.1.0"
 [[package]]
 name = "tutorial"
 version = "0.1.0"
+
+[[package]]
+name = "ude"
+version = "0.1.0"
