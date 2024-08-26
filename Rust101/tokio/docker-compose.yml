@@ -1,0 +1,63 @@
+version: '3'
+services:
+  integration-deps:
+    image: busybox
+    depends_on:
+      - payments.db
+      - redis
+    networks:
+      - payment_system_network
+
+  payments.db:
+    image: postgres:14.1
+    environment:
+      - POSTGRES_USER=easepay
+      - POSTGRES_PASSWORD=easepay
+      - POSTGRES_DB=easepay.payments.db
+    networks:
+      - payment_system_network
+
+  redis:
+    image: bitnami/redis:6.2
+    healthcheck:
+      test: redis-cli ping || exit 1
+      interval: 1s
+      timeout: 3s
+      retries: 3
+      start_period: 1s
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    networks:
+      - payment_system_network
+
+  integration-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      tags:
+        - 'image:easepay.psp'
+    depends_on:
+      - integration-deps
+    command: ["/wait-for-it.sh", "payments.db:5432", "--", "make", "test-in-ci"]
+    env_file: 
+      - .env.test
+    environment:
+      - RUST_BACKTRACE=1
+      - PG_HOST=payments.db
+      - PG_PORT=5432
+      - ENVIRONMENT=docker
+    working_dir: /repo
+    volumes:
+      - ./:/repo
+      - cargo-cache:/usr/local/cargo
+      - ./wait-for-it.sh:/wait-for-it.sh
+    networks:
+      - payment_system_network
+
+networks:
+  payment_system_network:
+    driver: bridge
+
+volumes:
+  cargo-cache:
